@@ -18,188 +18,80 @@
     
     <nav>
         <ul>
-            <li>a</li>
-            <li>start a php server</li>
-            <li>host a collective website together</li>
+            <li><a href="#questions">Opening Questions</a></li>
+            <li><a href="#setup">Set-Up Instructions</a></li>
+            <li><a href="#stages">3 stages of communal surfing</a></li>
+            <li><a href="#reflection">Reflection</a></li>
         </ul>
     </nav>
     
 
-                    
-        <details>
-            <summary>Preparations<br><i>Brew and PHP</i></summary>
+        <section id="questions">
+            <h2>Opening Questions</h2>
+            <details>
+                <summary>Quantitative Questions</summary>
 
-            To make it a little easier, we will only use mac computers in this workshop. If you have another type of machine, please pair up with someone who does.
+                <ul>
+                    <li>question 1</li>
+                    <li>question 2</li>
+                </ul>
+            </details> 
 
-            <ul>
-                <li>Open the terminal</li>
-                <li>Check if php is installed by typing <code>php -v</code>. If it returns your php version, you can continue to the next part. If not, you need to install php using brew.
-                <li>Check if brew is installed by typing <code>brew -v</code>. If it returns your brew version, you are good to go. If not, run <code class="block">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</code></li>
-                <li>Install php using the terminal using <code>brew install php</code> </li>
-            </ul>
-        </details> 
+            <details>
+                <summary>Qualitative Questions</summary>
 
-        <details>
-            <summary>Context<br><i>Why self-hosting is political</i></summary>
-
-            <img src="./img/relation.jpeg">
-
-            <ul class="glossary">
-                <li><h3>server</h3>
-                    When you visit a website, somewhere in the world there is a computer that has the website stored on it—that computer is one example of what we call a server. When you enter a URL into your browser, you are being connected to this server, and it will send you back (serve you) the content of the website. Your computer then displays this website in your browser, similar to the way a TV receives the signal from the TV station and renders it into an image on the screen.
-                </li>
-                <li><h3>web hosting service</h3>
-                    A web hosting service is a type of Internet hosting service. It allows people and companies to make their website available on the World Wide Web. Web hosts are companies which provide space on a server which is owned or leased for use by clients. These clients store their Web site on the server. The server feeds the web pages to the Internet.
-                </li>
-            </ul>
-        
-
-            <img src="./img/whois.png" />     
-        <p>
-
-        <img src="./img/cloud.png" />
+                <ul>
+                    <li>question 1</li>
+                    <li>question 2</li>
+                </ul>
+            </details> 
+        </section>
 
 
-        <ul class="glossary">
-            <li><h3>cloud</h3>
-                The cloud is a metaphor for the Internet based on how it is described in computer network diagrams. Just as how in the real world, clouds hide parts of the sky from sight, the cloud in computing hides the complex infrastructure that makes the Internet work.
-            </li>
-        </ul>
+        <section id="setup">
+            <details>
+                <summary>Set Up Instructions</summary>
 
-        what your rented (web) server looks like
-        <img src="./img/center.jpg" />
-
-        <ul>
-            Things that happen to keep the corporate cloud running:
-            <li>worker exploitation in the global south</li>
-            <li>production abhorrent amounts of e-waste that ends up on land fills in the global south</li>
-            <li>sharing  information with governments</li>
-            <li>locking their users in incomprehensible terms and conditions: users can’t easily switch to another service and take their documents, files and data with them</li>
-            <li>incapacitating users by hiding the entire structure and functionality of the services behind smooth interfaces: users can’t edit or access their files and documents when they are not connected to the internet,  don’t know where files are physically saved, or how to recover them when they are lost</li>
-        </ul>
-
-
-        <p>what your server could look like</p>
-        <img src="./img/raspi.png" />
-
-        <ul>
-            Why self-hosting
-            <li>
-                it allows people to gain (more) control over their data, both in terms of privacy and access to their files
-            </li>
-            <li>
-                it allows them to become more self-sufficient in their digital infrastructure
-            </li>
-            <li>
-                in the process, users will learn a lot about the way digital infrastructures work, making them more adapt at avoiding mistakes and fixing problems in the future,
-            </li>
-            <li>
-                it allows users to minimize their ecological footprint through lower energy usage and the recycling of old hardware,
-            </li>
-            <li>
-                it makes them less dependent on companies that are diametrically opposed to their ethical values
-            </li>
-        </ul>
-
-
-            <p>From these concers people have derived pratical and artistic approaches to emancipatory self-hosting practices, such as the <a href="https://areyoubeingserved.constantvzw.org/Summit_afterlife.xhtml" target="_blank">Feminist Server Manifesto</a>.</p>
-            <img src="./img/manifesto.png">
-
-            <p>Content for the most part borrowed from <a href="https://self-hosting.guide/" target="_blank">self-hosting.guide</a></p>
-
-        </details>
+                <ol>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </details>
+        </section>
 
 
     
-        <details>
-            <summary>1. Setting up an HTML document</summary>
-            <ul>
-                <li>Create a folder somewhere on your computer</li>
-                <li>Open the folder in a code editor</li>
-                <li>Create a file <code>index.html</code></li>
-                <li>Add some words to the document</li>
-            </ul>
-        </details> 
-        
-        <details>
-            <summary>2. Starting a server</summary>
-            <ul>
-                <li>Log into the wi-fi <code>110</code> with the password <code>digitalegrafik2024</code></li>
-                <li>To start a server which can be accessed by others, you have to find out your ip address. Open a new terminal window. Type <code>ifconfig | grep "inet "</code> in the terminal. The second number, which should look something like <code>192.168.1.2</code>, is your local ip address. </li>
-                <li>Now open a new terminal from your website folder. You can do so by dragging the folder onto the terminal app icon or by right-clicking and chosing <code>new terminal from folder</code> </li>
-                <li>Start a server by running <code>php -S [ip address]:8000</code>. Replace [ip address] with your ip address from step 2. <code>8000</code> is the port from where your website is accessable. </li>
-                <li>Test your server by opening <code>[ip address]:8000</code> in your browser</li>
-                <li>Your website is now already self-hosted and accessible for anyone in the network (same wi-fi). Test it by typing your neighbours ip and port in the address bar of your browser and see their website.</li>
-            </ul>
+        <section id="stages">
+            <h2>3 stages of communal surfing</h2>
+
+            <details>
+                <summary>1</summary>
+                <p></p>
+            </details>
+
+            <details>
+                <summary>2</summary>
+                <p></p>
+            </details>
+
+            <details>
+                <summary>3</summary>
+                <p></p>
+            </details>
+        </section>
 
 
-            <ul class="glossary">
-                <li><h3>ip address</h3>
-                    An IP address (short for Internet Protocol address) is a label which is used to identify one or more devices on a computer network, such as the internet. It can be compared to a postal address. An IP address is a long number written in binary.<br>Since such numbers are difficult to communicate, IP addresses are usually written as a set of numbers in a given order. Devices using IP addresses use the internet protocol to communicat
-                </li>
-                <li><h3>port</h3>
-                    In networking, a port is a logical endpoint for communication used by network protocols to identify specific processes or services on a device. Ports are used in conjunction with an IP address to direct traffic to the correct application.
-                </li>
-            </ul>
-        </details> 
+        <section id="reflection">
+            <details>
+                <summary>Reflection</summary>
+                <ul>
+                    <li>Question 1</li>
+                    <li>Question 2</li>
+                    <li>Question 3</li>
+                </ul>
+            </details>
+        </section>
 
-        <details>
-            <summary>3. Creating a mini website</summary>
-            We will now collectively host the feminist server manifesto. For this purpose, pick a bullet point from the list in <a href="https://pad.systemli.org/p/240612-self-hosting-workshop" target="_blank">this pad</a>. Write your name next to it so the others know it is taken. If you can think of your own definition of a feminist server, feel free to put this in a sentence and add it to the document. Now take some time to give the sentence a little design using css. You can do so by adding e.g. 
-            <code>&lt;style&gt;body { background: pink; }&lt;/style&gt;</code> directly to your <code>index.html</code>
-        </details> 
-
-        <details>
-            <summary>4. Making it public</summary>
-            In order to make the websites accessible from outside the network, we need to change the settings of our router so that the ports which you used are released to the outside. 
-            <ul>
-                <li>
-                    Put your ip and port in the format <code>[ip address]:[port number] next to your name in</code> <a href="https://pad.systemli.org/p/240612-self-hosting-workshop" target="_blank">this pad</a>.
-                </li>
-                <li>
-                    Make sure that you use a port number which no one else uses. 
-                </li>
-                <li>
-                    We will do this together: We have to tell our router to direct traffic to the respective ports.
-                </li>
-                <li>
-                    You can now test your website by typing [ip address]:[port number] in the address bar of your browser. This address will now work for anyone who is connected to the internet!
-                </li>
-                
-            </ul>
-        </details> 
-
- 
-        <details>
-            <summary>5. Assigning a domain</summary>
-            This is step which we will also do together. Our websites are now accessible through the ip of the router. This is rather complicated if we want to share it with others. Hence, we want to connect the ip address with a domain. However, our ip address will change on a regular basis. As a result, we have to use an external provider with dynamically updates our changing ip address and reconnects the domain whenever it changes. We will use the free service of <a href="https://www.noip.com/de-DE" target="_blank">no-ip</a> since they also provide a free testing domain: <code>server-manifesto.ddns.net</code>.
-            <p>We are public! </p>
-        </details> 
-
-        <details>
-            <summary>6. Connecting the websites</summary>
-            <ul>
-                <li>
-                    Since we want to collectively host the manifesto, we have to bring our mini websites together. We will do so by forwarding from one website to another referencing to <a href="https://art.teleportacia.org/olia/summer/" target="_blank">Olia Lialinas work Summer</a>. For this purpose, add the following content to your <code>index.html</code> at the very end: 
-                    <br><code class="block">&lt;script><br>
-                        setTimeout(function() {<br>
-                                       window.location.href = "http://server-manifesto.ddns.net:[port number]"; <br>
-                                   }, 10000);<br>
-                                &lt;/script&gt;<br>
-                     </code>
-
-                     This code forwards the user of the website to the next one in line after 3 seconds.
-                </li>
-            </ul>
-            If everyone has updated their website, our collectively hosted manifesto is finished! Starting with the address of the very first item, the websites walk us through the content as long as everyone keeps up their self-hosted mini website and as long as the ports are open.
-        </details> 
-
-        <details>
-            <summary>7. Port Closing</summary>
-            We will make sure to not leave any port open since this could pose a security risk!
-        </details> 
-        <br><br><br>
-        <p>Thank you :)</p>
     </main>
 
 

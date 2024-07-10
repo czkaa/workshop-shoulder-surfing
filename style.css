@@ -22,6 +22,12 @@
     margin-bottom: 3rem;
   }
 
+  nav {
+    position: fixed;
+    left: 1rem;
+    top: 15vh;
+  }
+
   summary {
     margin-bottom: 1rem;
   }

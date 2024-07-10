@@ -1,0 +1,75 @@
+
+  * {
+    box-sizing: border-box;
+  }
+
+  @font-face {
+    font-family: "Erika";
+    src: url("./fonts/G2-Erika-Mono.woff") format("opentype");
+  }
+
+
+  :root {
+    --primary-color: #585858;
+    --secondary-color: rgb(228, 112, 63);
+    --tertiary-color: #d8d7d7;
+    --text-base: 14px;
+    }
+    
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Erika";
+    font-size: var(--text-base);
+  }
+ 
+  
+  ul,
+  ul li {
+     margin:0;
+     padding: 0;
+     text-indent: 0;
+     list-style-type: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--pri-color);
+  }
+
+  h1,h2, h3 {
+    font-family: 'Erika', sans-serif;
+    font-weight: normal;
+    text-align: center;
+  }
+
+  strong {
+    font-weight: normal;
+  }
+
+  button {
+    color: var(--primary-color);
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  h1, h2, h3 {
+    font-weight: normal;
+    margin: 0rem;
+    font-size: var(--text-base);
+  }
+  
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}

@@ -1,0 +1,144 @@
+
+
+  body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Erika;
+    color: gray;
+    background-color: rgb(225, 225, 225);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+    line-height: 1.35;
+  }
+
+
+  h1 {
+    font-size: 4rem;
+    letter-spacing: -0.2rem;
+    margin-bottom: 3rem;
+  }
+
+  summary {
+    margin-bottom: 1rem;
+  }
+
+  details {
+    width: 100%;
+    text-align: center;
+    margin-top: 10rem;
+  }
+
+ h2 {
+  font-size: 1.5rem;
+  }
+
+  main {
+    max-width: 900px;
+    width: 100%;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  p {
+    margin-top: 3rem !important;
+  }
+
+
+  ul {
+    text-align: left;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  li {
+    position: relative;
+    padding-left: 1.5rem !important;
+  }
+
+  li:before {
+    content: "×";
+    position: absolute;
+    left: 0;
+    padding-right: 0.5rem;
+    display: inline-block;
+    transform: translateY(0rem);
+  }
+
+  code, pre {
+    font-size: 1.4rem;
+    padding: 0.1rem 1rem;
+    background: white;
+    font-family: "Erika";
+    white-space: nowrap;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 1rem;
+    margin-top: 1rem;
+  }
+
+  .glossary {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    margin-top: 5rem;
+    line-height: 1.1;
+    margin-bottom: 5rem;
+  }
+
+  .glossary li {
+    width: calc(50% - 1rem);
+    padding: 0.5rem;
+    padding-bottom: 1rem;
+    background: white;
+    margin: 0.5rem;
+    border-radius: 1rem;
+  }
+  
+
+  .glossary li:before {
+    display: none;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    margin-top: 1rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    margin-left: -1.5rem;
+  }
+
+  .gallery li {
+    width: 50%;
+    padding-left: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+
+  .gallery li:before {
+    display: none;
+  }
+
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  .block {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }

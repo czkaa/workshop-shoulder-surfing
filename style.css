@@ -28,6 +28,12 @@
     top: 15vh;
   }
 
+  #toplink {
+    position: fixed;
+    bottom: 1vh;
+    left: 1rem;
+  }
+
   summary {
     margin-bottom: 1rem;
   }

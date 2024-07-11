@@ -20,100 +20,186 @@
     
         <nav>
             <ul>
-                <li><a href="#questions">Opening Questions</a></li>
+                <li><a href="#intro">Intro</a></li>
+                <li><a href="#exchange">Group Exchange</a></li>
                 <li><a href="#setup">Set-Up Instructions</a></li>
-                <li><a href="#stages">3 stages of communal surfing</a></li>
+                <li><a href="#stages">3 Stages of Communal Surfing</a></li>
                 <li><a href="#reflection">Reflection</a></li>
             </ul>
         </nav>
     
 
-        <section id="questions">
-            <h2>Opening Questions</h2>
-            <details>
-                <summary>Quantitative Questions</summary>
-
-                <ul>
-                    <li>question 1</li>
-                    <li>question 2</li>
-                </ul>
-            </details> 
-
-            <details>
-                <summary>Qualitative Questions</summary>
-
-                <ul>
-                    <li>question 1</li>
-                    <li>question 2</li>
-                </ul>
-            </details> 
+        <section id="intro">
+            <h2>Intro [alltogether]</h2>
+            
+            <ul>
+                <li>how many personal computer devices do you own?</li>
+                <li>how old were you when you had your first computer device</li>
+                <li>how old were you when computers became a thing?</li>
+                <li>how much do you hate it when someone watches you write or browse on a device</li>
+                <li>how much do you hate it when you have to watch someone use a device, not being allowed to interfere</li>
+            </ul>
         </section>
+
+        <section id="exchange">
+            <h2>Exchange [in groups]</h2>
+            
+            Pick questions which spark your interest and discuss:
+            <ul>
+                <li>Have you ever owned a device communally (shared ownership split across different parties)?
+                    Did you share usage or the property out of necessity or voluntarily? (burden or possibility?)</li>
+                <li>How do you feel when you hand over your phone do someone else? </li>
+                <li>Is there a sense of privacy connected to specific devices?</li> 
+                <li>Do you take actions to enforce this (screen settings, display foils, ...)?</li>
+                <li>What difficulties did you encounter? Fights, moments of collaboration, ...</li>
+                <li>Thinking about the devices which you own: What kind of property/ ownership are they (handed down, rented, leased, bought...)? </li>
+                <li>How this change your relationship towards the device?</li>
+            </ul>
+        </section>
+
+
 
 
         <section id="setup">
-            <details>
-                <summary>Set Up Instructions</summary>
+            <h2>Multi-Cursor Setup [in groups]</h2>
 
-                <ol>
-                    <li></li>
-                    <li></li>
-                </ol>
+            Who is familiar with linux? Who has used the terminal before? Let's help each other and don't hesitate to ask questions!
+
+           <details>
+                <summary>step 1: open the terminal</summary>
+                Press Ctrl + Alt + T to open the terminal.
+            </details>
+            
+            <details>
+                <summary>step 2: check if xinput is installed</summary>
+                Type the following command and press Enter:
+                <code>xinput --version</code>
+                If xinput is not installed, install it by typing the following and press Enter:
+                <code>sudo apt-get install xinput</code>
+                Enter your password if prompted (written on the computer)
+                
+            </details>
+
+            <details>
+                <summary>step 3: list input devices</summary>
+                Make sure you have plugged in all the devices which you want to use. To get the list of input devices, type the following command and press Enter:
+                <code>xinput list | awk -F'\\[' '{print $1}'</code>
+                <br>
+                <code class="block">
+                    The output should look something like this:<br>
+                    ⎡ Virtual core pointer                    		id=2<br>
+                    ⎜   ↳ Virtual core XTEST pointer              	id=4<br>	
+                    ⎜   ↳ QEMU QEMU USB Tablet                    	id=7<br>	
+                    ⎜   ↳ QEMU QEMU USB Mouse                     	id=8<br>	
+                    ⎜   ↳ spice vdagent tablet                    	id=10<br>	
+                    ⎣ Virtual core keyboard                   		id=3<br>	
+                        ↳ Virtual core XTEST keyboard             	id=5<br>	
+                        ↳ Power Button                            	id=6<br>	
+                        ↳ QEMU QEMU USB Keyboard                  	id=9
+                </code>	
+            </details>
+
+            <details>
+                <summary>step 4: create additional pointers</summary>
+                For each group member, create a new pointer. E.g. type the following and press Enter:
+                <code>xinput create-master second-pointer</code>
+                <br>
+                <code>second-pointer</code> is an identifier and can be any name you want to give the pointer. It needs to be a unique name for each pointer which you create.
+                <br>
+                The new pointer should already be visible on the screen but cannot be moved yet.
+            </details>
+            
+            <details>
+                <summary>step 5: assign devices to pointers</summary>
+                Check the list again using again  <code>xinput list | awk -F'\\[' '{print $1}‘</code>.
+                <br>
+                The output should look similar to this:
+                <code class="block">
+                    ⎡ Virtual core pointer                    		id=2<br>	
+                    ⎜   ↳ Virtual core XTEST pointer              	id=4<br>	
+                    ⎜   ↳ QEMU QEMU USB Tablet                    	id=7<br>	
+                    ⎜   ↳ QEMU QEMU USB Mouse                     	id=8<br>	
+                    ⎜   ↳ spice vdagent tablet                    	id=10<br>	
+                    ⎣ Virtual core keyboard                   		id=3<br>	
+                        ↳ Virtual core XTEST keyboard             	id=5<br>	
+                        ↳ Power Button                            	id=6<br>	
+                        ↳ QEMU QEMU USB Keyboard                  	id=9<br>	
+                    ⎡ second pointer                          		id=11<br>	
+                    ⎜   ↳ second XTEST pointer                    	id=13<br>	
+                    ⎣ second keyboard                         		id=12<br>	
+                        ↳ second XTEST keyboard                   	id=14	
+                </code>
+
+                <br>
+                You can see that there is a new pointer available in the list. In this case, our new pointer has the <code>id=11</code>. You can also identify the id of the multiple devices, e.g. the id of the tablet, which is <code>id=10</code>. You can now assign a device to the new pointer by the command <code>xinput reattach 10 11</code>
+                The number will differ depending on the values in your list. The syntax is <code>xinput reattach [device] [pointer]</code>. 
+            </details>
+
+            <details>
+                <summary>step 6: repeat for every device</summary>
+
+                Repeating the steps 4 and 5 you can create as many pointers as you need. You are good to go for your multicursor setup!
+                Beware of bugs: Depending on your machine, the cursors will flicker, disappear and change state depending on your and the others interaction. Also, only the root cursor will be able to open new programs/move windows etc. and probably many other bugs which we didn't encounter yet!
             </details>
         </section>
 
+
+        <br><br><br><br>
 
     
         <section id="stages">
-            <h2>3 stages of communal surfing</h2>
+            <h2>3 stages of Communal Surfing [in groups]</h2>
+
+            We propose 3 different ways of surfing together. Only the last one requires the multiple cursors. Take some time to roam around in the different settings.
 
             <details>
-                <summary>1</summary>
-                <p>several people only one of them is operator</p>
+                <summary>stage 1</summary>
+                <p>several people but only one of them is operating the device and the corresponding cursor</p>
             </details>
 
             <details>
-                <summary>2</summary>
-                <p>several people and operators for one cursor</p>
+                <summary>stage 2</summary>
+                <p>several people operate a device each – but only one cursors</p>
             </details>
 
             <details>
-                <summary>3</summary>
-                <p>several operators and several cursors</p>
+                <summary>stage 3</summary>
+                <p>several operators and one cursor each</p>
             </details>
 
-            <details>
-                <summary>Tasks</summary>
-                <ul>
-                    <li>Give a walkthrough of your favourite website / video / image on the internet</li>
-                    <li>draw an image together</li>
-                    <li>Create a cursor choreography</li>
-                    <li>Type sentences together on a digital keyboard while not using verbal communication</li>
-                    <li>Type sentences together on a digital keyboard while using verbal communication</li>
-                    <li>Surf isolated for a minute by opening one browser window each</li>
-                    <li>Surf collectively, assigning different roles: commanding, scrolling, clicking – e.g. browse wikipedia page of the day</li>
-                    <li>Also make up your own tasks</li>
-                </ul>
-                <p>... can you think of more stages? One person leading the other persons hand, two people holding the computer, ...</p>
-            </details>
+            Here is a small list of tasks which you can take as a starting point for your explorations:
+            <ul>
+                <li>Give a walkthrough of your favourite website / video / image on the internet</li>
+                <li>draw an image together e.g. using <a target="_blank" href="https://paint.js.org/">this tool</a></li>
+                <li>Create a cursor choreography</li>
+                <li>Type sentences together on a digital keyboard while not using verbal communication <a target="_blank" href="/keyboard">this tool</a></li>
+                <li>Type sentences together on a digital keyboard while using verbal communication <a target="_blank" href="/keyboard">this tool</a></li>
+                <li>Surf isolated for a minute by opening one browser window each</li>
+                <li>Surf collectively, assigning different roles: commanding, scrolling, clicking – e.g. browse wikipedia page of the day</li>
+                <li>Also make up your own tasks</li>
+            </ul>
+            
+            <p>Feel free to come up with additional stages of communal surfing! One person leading the other persons hand, two people holding the computer, ...</p>
         </section>
+
+        <br><br><br><br>
 
 
         <section id="reflection">
-            <details>
-                <summary>Reflection</summary>
-                <ul>
-                    <li>Question 1</li>
-                    <li>Question 2</li>
-                    <li>Question 3</li>
-                </ul>
-            </details>
+            <h2>Reflection [all togehter]</h2>
+            
+            <ul>
+                <li>How did it feel? Would you do it again?</li>
+                <li>How did you interact in the physical space?</li>
+                <li>Did you agree on any rules to operate collectively?</li>
+                <li>With whom and in which situation would you do this?</li>
+                <li>Are you ready to throw away your device now?</li>
+            </ul>
         </section>
 
     </main>
-
-
-
-
 </body>
-
 </html>
+
+
+

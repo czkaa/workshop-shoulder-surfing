@@ -131,3 +131,8 @@
     white-space: initial;
     text-align: left;
   }
+
+  .endimg {
+    width: 15rem;
+    height: auto;
+  }

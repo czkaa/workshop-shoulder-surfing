@@ -16,6 +16,15 @@
     overflow-x: hidden;
   }
 
+  ::-moz-selection { /* Code for Firefox */
+    color: white;
+    background: rgb(71, 71, 71);
+  }
+  
+  ::selection {
+    color: white;
+    background: rgb(71, 71, 71);
+  }
 
   h1 {
     font-size: 4rem;

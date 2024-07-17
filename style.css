@@ -46,7 +46,16 @@
     left: 1rem;
   }
 
-
+  .imgflex {
+    display: flex;
+    flex-direction: row;
+    gap: .25rem;
+    flex-wrap: wrap;
+  }
+  .imgflex img {
+    width: autp;
+    height: 30vh;
+  }
 
   details {
     width: 100%;
@@ -68,6 +77,7 @@
     align-items: center;
     margin-left: 25vw;
     margin-right: 25vw;
+    overflow: hidden;
 
   }
 

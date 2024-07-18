@@ -96,7 +96,7 @@
             <details>
                 <summary>step 3: list input devices</summary>
                 Make sure you have plugged in all the devices which you want to use. To get the list of input devices, type the following command and press Enter:
-                <code>xinput list | awk -F'\\[' '{print $1}'</code>
+                <code>xinput list</code>
                 <br>
                 <code class="block">
                     The output should look something like this:<br>
@@ -115,7 +115,7 @@
             <details>
                 <summary>step 4: create additional pointers</summary>
                 For each group member, create a new pointer. E.g. type the following and press Enter:
-                <code>xinput create-master second-pointer</code>
+                <code>xinput create-main second-pointer</code>
                 <br>
                 <code>second-pointer</code> is an identifier and can be any name you want to give the pointer. It needs to be a unique name for each pointer which you create.
                 <br>
